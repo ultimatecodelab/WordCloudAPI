@@ -1,4 +1,6 @@
 ﻿##Developer : Arjun Kharel (G00298984) - WordCloudAPI
+﻿
+﻿![Alt text](https://github.com/ultimatecodelab/WordCloudAPI/blob/master/WordCloud.png "Optional title")
 
 **Clone: https://github.com/ultimatecodelab/WordCloudAPI.git**
 
