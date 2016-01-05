@@ -19,7 +19,8 @@ public class Client {
 		switch (option) {
 
 		case 1:
-			System.out.print("Enter FileName (myfile.txt) including the file extension. : ");
+			System.out.print("Enter Your File Name to Parse with  .txt extension. "
+					+ " myfile.txt has been included with the project for testing: ");
 			String fileName = sc.next();
 			manager = new ParseManager(ParserFactory.getParser(ParseType.FileParser), fileName);
 			new WordCloud(manager.getWordsToDraw());
