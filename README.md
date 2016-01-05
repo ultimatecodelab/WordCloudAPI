@@ -25,7 +25,7 @@
 
 1: Open command prompt and cd into G00298984 folder.
 
-2: Please ensure  "stopwords.txt", "wordcloud.jar"and lib folder are on the same location, i.e( the same folder).
+2: Please ensure  **"stopwords.txt"**, **"wordcloud.jar"** and **lib** folder are on the same location, i.e( the same folder).
 
 3: Run WordCloud api using the one of the following command (first one is recommended )
 	
