@@ -96,4 +96,6 @@ The project is fully functional and is comprises of the following features / Tec
 
 	- Word.java (Class for storing words and Frequency) **Overides .equals()/hashCode() and Implements Comparable interface for 	comparing the frequency. Override .equals() for the equality check of generic objects...
 	- WordCloud.java (Creates the wordCloud)
+	- 
+**Junit Test's cases located in the test folder**
 
