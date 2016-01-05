@@ -101,3 +101,6 @@ The project is fully functional and is comprises of the following features / Tec
 	- 
 **Junit Test's cases located in the test folder**
 
+**UML Diagram: Zoom in if it hurt your eyes :) **
+![Alt text](https://github.com/ultimatecodelab/WordCloudAPI/blob/master/wordcloudapiuml.png "Optional title")
+
