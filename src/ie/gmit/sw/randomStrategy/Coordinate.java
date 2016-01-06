@@ -8,14 +8,14 @@ public class Coordinate implements CordinateGenerator {
 
 	private Random rand = new Random();
 
-	@Override
-	public int getX() {
-		return rand.nextInt(1099) + 1;
+	//getting xCoordinate for placing the word
+	public int getX(int max) {
+		return rand.nextInt(max) + 1;
 	}
 
-	@Override
-	public int getY() {
-		return rand.nextInt(540) + 1;
+	//getting yCoordinate 
+	public int getY(int min) {
+		return rand.nextInt(min) + 1;
 	}
 
 }

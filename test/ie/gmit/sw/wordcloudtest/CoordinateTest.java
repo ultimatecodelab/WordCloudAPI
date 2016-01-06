@@ -27,7 +27,7 @@ public class CoordinateTest {
 		int max = 1100;
 		int min = 1;
 
-		int val = coordiante.getX();
+		int val = coordiante.getX(max);
 
 		assertTrue(val >= min || val <= max);
 	}

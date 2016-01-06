@@ -18,6 +18,8 @@ public class WordCloud {
 	// Constants and variables
 	private static final int PADDING = 6;
 	private static final int MAX_Y_AXIS_FOR_ROTATED_TEXT = 675;
+	private static final int MAX_RAND_X =1099;
+	private static final int MAX_RAND_Y = 540;
 
 	private String wordCloudPNGFileName = "WordCloud.png";
 
@@ -84,21 +86,21 @@ public class WordCloud {
 			width = height;
 			height = tempVal;
 			rotated = true;
-			newRectangle = new Rectangle(coordinate.getX() + PADDING, coordinate.getY(), width, height);
+			newRectangle = new Rectangle(coordinate.getX(MAX_RAND_X) + PADDING, coordinate.getY(MAX_RAND_Y), width, height);
 		} else {
-			newRectangle = new Rectangle(coordinate.getX() + PADDING, coordinate.getY() + height, width, height);
+			newRectangle = new Rectangle(coordinate.getX(MAX_RAND_X) + PADDING, coordinate.getY(MAX_RAND_Y) + height, width, height);
 		}
 
 		while ((collisonChecker.checkForCollision(newRectangle))) {
-			newRectangle.setLocation(coordinate.getX(), coordinate.getY() + myGraphics.getFontHeight());
+			newRectangle.setLocation(coordinate.getX(MAX_RAND_X), coordinate.getY(MAX_RAND_Y) + myGraphics.getFontHeight());
 			if (rotated) {
 				while (newRectangle.getY() + myGraphics.getFontHeight() >= MAX_Y_AXIS_FOR_ROTATED_TEXT) {
-					newRectangle.setLocation((int) newRectangle.getX(), (coordinate.getY()));
+					newRectangle.setLocation((int) newRectangle.getX(), (coordinate.getY(MAX_RAND_Y)));
 				}
 			}
 
 			while ((newRectangle.getX() + myGraphics.getFontWidth(temp.getWord()) + PADDING) > 1089) {
-				newRectangle.setLocation(coordinate.getX(), (int) newRectangle.getY() + myGraphics.getFontHeight());
+				newRectangle.setLocation(coordinate.getX(MAX_RAND_X), (int) newRectangle.getY() + myGraphics.getFontHeight());
 			}
 
 		}

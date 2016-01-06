@@ -1,9 +1,13 @@
 package ie.gmit.sw.wordcloud;
+/*Contains word(String ) and int frequency
+ * Implements Comparable to compare the frequency of the word with another word
+ * Overrides .equals() method to check the word againt the stopwords
+ */
 
 public class Word implements Comparable<Word> {
 
-	private String word;
-	private int frequency;
+	private String word; //String word
+	private int frequency; //frequency
 	
 	public Word(String word, int frequency) {
 		setWord(word);
@@ -29,13 +33,12 @@ public class Word implements Comparable<Word> {
 	public int getFrequency() {
 		return frequency;
 	}
-
-	@Override
+	//comparing the frequency
 	public int compareTo(Word wordFrequency) {
 		return wordFrequency.frequency - frequency;
 	}
 
-	@Override
+	//overriding .equals method to check of the word equals the stopwords word
 	public boolean equals(Object obj) {
 		if (obj == null) {
 			return false;

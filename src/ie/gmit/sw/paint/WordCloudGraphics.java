@@ -12,45 +12,46 @@ import javax.imageio.ImageIO;
 
 public class WordCloudGraphics implements Graphicator {
 
-	private static final int WIDTH = 1300;
-	private static final int HEIGHT = 700;
+	private static final int WIDTH = 1300; // image width
+	private static final int HEIGHT = 700; // image height
 
 	private static BufferedImage wordCloudPNG = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_4BYTE_ABGR);
 	private static Graphics graphics = wordCloudPNG.getGraphics();
 	private String imageName;;
 
+	// default constructor
 	public WordCloudGraphics() {
-		setBackgroundColor();
+		setBackgroundColor(); // setting the background
 	}
 
+	// setting the background
 	private void setBackgroundColor() {
 		Graphics2D g2d = (Graphics2D) graphics;
 		g2d.setPaint(new Color(0, 0, 0));
 		g2d.fillRect(0, 0, wordCloudPNG.getWidth(), wordCloudPNG.getHeight());
 	}
 
+	// initialization of graphics
 	public WordCloudGraphics(Font f, Color c) {
 		setBackgroundColor();
 		setColor(c);
 		setFont(f);
 	}
-
+	//setting the color
 	public void setColor(Color color) {
 		graphics.setColor(color);
-
 	}
-
+	//setting the font
 	public void setFont(Font font) {
 		graphics.setFont(font);
 
 	}
-
+	//returning the width of the string based on the font size
 	public int getFontWidth(String word) {
 		return graphics.getFontMetrics().stringWidth(word.toUpperCase());
 	}
-
+	//returning height
 	public int getFontHeight() {
-
 		return graphics.getFontMetrics().getHeight();
 	}
 
@@ -58,24 +59,23 @@ public class WordCloudGraphics implements Graphicator {
 		graphics.dispose();
 	}
 
-	@Override
+	//generating png image
 	public boolean generatePNGGraphics(String fileName) throws IOException {
 		try {
 			this.imageName = fileName;
 			ImageIO.write(wordCloudPNG, "png", new File(imageName));
-			return true;
+			return true; //if successful
 		} catch (Exception e) {
 			return false;
 		}
-
 	}
 
-	@Override
+	//drawing  word
 	public void drawWord(String word, int xCordinate, int yCordinate) {
 		graphics.drawString(word.trim().toUpperCase().trim(), xCordinate, yCordinate);
 	}
 
-	@Override
+	//rotated text -  a bit of math's
 	public void drawRotatedWord(String word, int xCordinate, int yCordinate) {
 		Graphics2D g2d = (Graphics2D) graphics;
 		g2d.translate((float) xCordinate, (float) yCordinate);

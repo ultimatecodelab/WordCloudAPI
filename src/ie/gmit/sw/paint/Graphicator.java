@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 
 public interface Graphicator {
-	// to encapsulate the java Graphics -- see the implementing class
-	// CreateGraphics
+	// Only the necessary methods needed for our application has been used
+	// every other methods of graphics are hidden. Encapsulation / data hiding
 	public abstract void setColor(Color color);
 
 	public abstract void setFont(Font font);

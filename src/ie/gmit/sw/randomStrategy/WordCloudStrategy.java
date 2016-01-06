@@ -9,6 +9,11 @@ public class WordCloudStrategy implements WordCloudRandomiser {
 	private int fontSize = 0;
 	private int minFont = 10;
 
+	/*
+	 * Returning the Font by randomly selecting, but we are using the frequency
+	 * of the word to return the the font size... the word with bigger frequency
+	 * gets the bigger font
+	 */
 	public Font getFont(int wordFreq) {
 		Random rand = new Random();
 		fontSize = 0;
@@ -34,17 +39,18 @@ public class WordCloudStrategy implements WordCloudRandomiser {
 		return font[rand.nextInt(font.length - 1)];
 	}
 
+	// Colours
 	private Color[] colours = { Color.red, Color.cyan, Color.yellow, Color.green, Color.magenta, Color.DARK_GRAY,
 			Color.pink };
 
-	@Override
+	// returning font
 	public Font getRandomFont(int frequncyofWord) {
 		Font f = getFont(frequncyofWord);
 		return f;
 
 	}
 
-	@Override
+	// returning randomColor
 	public Color getRandomColor() {
 		Random rand = new Random();
 		return colours[rand.nextInt(colours.length - 1)];

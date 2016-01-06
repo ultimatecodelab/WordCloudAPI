@@ -18,7 +18,6 @@ public class URLParser implements Parsable {
 	private static List<Word> parsedWords = new ArrayList<>();
 	private FrequencyAnalyzer wordsFreq;
 
-	
 	public URLParser(FrequencyAnalyzer frequencyAnalyzor) {
 		this.wordsFreq = frequencyAnalyzor;
 	}
@@ -31,15 +30,17 @@ public class URLParser implements Parsable {
 			// System.out.println(url + "is");
 			Document doc = Jsoup.connect(url).get();
 			Elements paragraphs = doc.select("p");
-			for (Element p : paragraphs)
+			for (Element p : paragraphs) // retrieving the context in paragraph
 				words.append(p.text().toString());
 		} catch (IOException ex) {
 			System.out.println("Error parsing the URL");
 
 		}
+		// adding to the list
 		addToList(words);
 	}
 
+	// Parsig url and adding to the list
 	private void addToList(StringBuilder words) {
 		parsedWords.clear();
 		StringBuilder wordsList = new StringBuilder();
@@ -56,14 +57,13 @@ public class URLParser implements Parsable {
 		}
 	}
 
-	@Override
+	// returning list of parsed Words
 	public List<Word> listOfParsedWords() {
-
+		
 		for (Map.Entry<String, Integer> entry : wordsFreq.getWordMap().entrySet()) {
 			String word = entry.getKey();
 			Integer value = entry.getValue();
 			parsedWords.add(new Word(word, value));
-
 		}
 		return new ArrayList<Word>(parsedWords);
 	}

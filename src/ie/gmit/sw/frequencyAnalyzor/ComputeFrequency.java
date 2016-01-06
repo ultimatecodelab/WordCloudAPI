@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ComputeFrequency implements FrequencyAnalyzer {
-
+	//holds words  and frequencies
 	private Map<String, Integer> wordsAndFreq = new HashMap<>();
 
 	public ComputeFrequency() {
-		wordsAndFreq.clear();
+		wordsAndFreq.clear(); //clearing initially
 	}
 
 	@Override
@@ -25,6 +25,6 @@ public class ComputeFrequency implements FrequencyAnalyzer {
 	@Override
 	public Map<String, Integer> getWordMap() {
 		// returning the copy of hashmap
-		return new HashMap<>(wordsAndFreq);
+		return new HashMap<>(wordsAndFreq);//returning copy
 	}
 }

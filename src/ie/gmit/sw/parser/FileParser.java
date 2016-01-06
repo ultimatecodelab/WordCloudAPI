@@ -11,13 +11,13 @@ import ie.gmit.sw.frequencyAnalyzor.FrequencyAnalyzer;
 import ie.gmit.sw.wordcloud.Word;
 
 public class FileParser implements Parsable {
-
+	// list of Words
 	private static List<Word> parsedWords = new ArrayList<>();
-	// private static Map<String,Integer > wordsAndFreq = new
-	// HashMap<String,Integer>();
+
 	private static StringBuilder words = new StringBuilder();
 
-	private FrequencyAnalyzer wordsFreq;
+	private FrequencyAnalyzer wordsFreq; // dependency on interface
+											// (abstraction)
 
 	public FileParser(FrequencyAnalyzer freqAnalyzer) {
 		this.wordsFreq = freqAnalyzer;
@@ -41,19 +41,9 @@ public class FileParser implements Parsable {
 				if ((charRead >= 'A' && charRead <= 'z')) {
 					words.append(charRead);
 				}
-				// if I encounter space or newline character then I know for sure
-				// for im either at
-				// the new line or end of word.
-				else if (charRead == ' ' || charRead == '\n') {
+				// if I encounter space or newline character then I know for
 
-					// parsedWords.add(words.toString().trim());
-					/*
-					 * if(wordsAndFreq.containsKey(words.toString())){
-					 * duplicateCounter++; int val =
-					 * wordsAndFreq.get(words.toString())+1;
-					 * wordsAndFreq.put(words.toString().trim(), val); }else{
-					 * wordsAndFreq.put(words.toString(), 1); }
-					 */
+				else if (charRead == ' ' || charRead == '\n') {
 					wordsFreq.put(words.toString().trim());
 					words.setLength(0);
 				}
@@ -67,7 +57,7 @@ public class FileParser implements Parsable {
 		}
 	}
 
-	@Override
+	// now we are putting the words and their frequencies values
 	public List<Word> listOfParsedWords() {
 		for (Map.Entry<String, Integer> entry : wordsFreq.getWordMap().entrySet()) {
 			String word = entry.getKey();
