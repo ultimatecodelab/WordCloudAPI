@@ -29,9 +29,7 @@
 
 3: Run WordCloud api using the one of the following command (first one is recommended )
 	
-		java -cp "./wordcloud.jar;lib/*" ie.gmit.sw.Runner (Windows)
-		
-		java –cp ./wordcloud.jar ie.gmit.sw.Runner
+		java -cp "./wordcloud.jar;lib/*" ie.gmit.sw.Runner (Windows) //this way it compiles jsoup in lib folder  too.
 		
 		java -cp "./wordcloud.jar:lib/*" ie.gmit.sw.Runner (Linux)
 
