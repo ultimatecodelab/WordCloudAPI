@@ -10,7 +10,6 @@
 - **wordcloud.jar** (wordcloudapi)
 - **lib** Folder contains jsoup library. Please make sure **"wordcloud.jar"** and **lib** folder are in the same folder. 
 - **src** (contains all the source code)
-- **test** (contains junit test cases)
 - **docs** (Java docs)
 - **WordCloud UML**
 - **stopwords.txt** (contains stopwords / words to ignore) **stopwords.txt** must be on the same directory as the **wordcloud.jar**
@@ -44,9 +43,9 @@
 
 The project is fully functional and is comprises of the following features / Technologies
 
-1: URL Parsing
+1: URL Parsing (JSoup)
 
-2: File Parsing
+2: File Parsing (NIO)
 
 3: **Advanced word placements with collision detections feature**
 
@@ -97,8 +96,19 @@ The project is fully functional and is comprises of the following features / Tec
 	- Word.java (Class for storing words and Frequency) **Overides .equals()/hashCode() and Implements Comparable interface for 	comparing the frequency. Override .equals() for the equality check of generic objects...
 	- WordCloud.java (Creates the wordCloud)
 	- 
-**Junit Test's cases located in the test folder**
+8: **ie.gmit.sw.JunitTest**
 
-**UML Diagram: Zoom in if it hurt your eyes :) **
+	- AllTestsSuit.java
+	- CollisionDetectionTest.java
+	- CoordinateTest.java
+	- CreateWordCloud.Test.java
+	- FileParserTest.java
+	- FrequencyanalyzorTest.java
+	- URLParserTest.java
+	- WordCloudGraphics.Test
+	- WordCloudStrategy.java
+	- WordTest.java
+
+**UML Diagram: Off course you can zoom in :) **
 ![Alt text](https://github.com/ultimatecodelab/WordCloudAPI/blob/master/wordcloudapiuml.png "Optional title")
 
