@@ -23,21 +23,24 @@ public class URLParser implements Parsable {
 	}
 
 	@Override
-	public void parse(String parse) throws IOException {
+	public boolean parse(String parse) throws IOException {
 		StringBuilder words = new StringBuilder();
+		String url = parse;
+		// System.out.println(url + "is");
+		Document doc = null;
 		try {
-			String url = parse;
-			// System.out.println(url + "is");
-			Document doc = Jsoup.connect(url).get();
-			Elements paragraphs = doc.select("p");
-			for (Element p : paragraphs) // retrieving the context in paragraph
-				words.append(p.text().toString());
-		} catch (IOException ex) {
-			System.out.println("Error parsing the URL");
-
+			doc = Jsoup.connect(url).get();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error occured parsint the URL");
+			return false;
 		}
+		Elements paragraphs = doc.select("p");
+		for (Element p : paragraphs) // retrieving the context in paragraph
+			words.append(p.text().toString());
 		// adding to the list
 		addToList(words);
+		return true;
 	}
 
 	// Parsig url and adding to the list

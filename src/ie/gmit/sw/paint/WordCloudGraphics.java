@@ -37,20 +37,24 @@ public class WordCloudGraphics implements Graphicator {
 		setColor(c);
 		setFont(f);
 	}
-	//setting the color
+
+	// setting the color
 	public void setColor(Color color) {
 		graphics.setColor(color);
 	}
-	//setting the font
+
+	// setting the font
 	public void setFont(Font font) {
 		graphics.setFont(font);
 
 	}
-	//returning the width of the string based on the font size
+
+	// returning the width of the string based on the font size
 	public int getFontWidth(String word) {
 		return graphics.getFontMetrics().stringWidth(word.toUpperCase());
 	}
-	//returning height
+
+	// returning height
 	public int getFontHeight() {
 		return graphics.getFontMetrics().getHeight();
 	}
@@ -59,23 +63,23 @@ public class WordCloudGraphics implements Graphicator {
 		graphics.dispose();
 	}
 
-	//generating png image
+	// generating png image
 	public boolean generatePNGGraphics(String fileName) throws IOException {
 		try {
 			this.imageName = fileName;
 			ImageIO.write(wordCloudPNG, "png", new File(imageName));
-			return true; //if successful
+			return true; // if successful
 		} catch (Exception e) {
 			return false;
 		}
 	}
 
-	//drawing  word
+	// drawing word
 	public void drawWord(String word, int xCordinate, int yCordinate) {
 		graphics.drawString(word.trim().toUpperCase().trim(), xCordinate, yCordinate);
 	}
 
-	//rotated text -  a bit of math's
+	// rotated text - a bit of math's
 	public void drawRotatedWord(String word, int xCordinate, int yCordinate) {
 		Graphics2D g2d = (Graphics2D) graphics;
 		g2d.translate((float) xCordinate, (float) yCordinate);

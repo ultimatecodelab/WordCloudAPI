@@ -6,9 +6,9 @@ package ie.gmit.sw.wordcloud;
 
 public class Word implements Comparable<Word> {
 
-	private String word; //String word
-	private int frequency; //frequency
-	
+	private String word; // String word
+	private int frequency; // frequency
+
 	public Word(String word, int frequency) {
 		setWord(word);
 		setFrequency(frequency);
@@ -33,12 +33,13 @@ public class Word implements Comparable<Word> {
 	public int getFrequency() {
 		return frequency;
 	}
-	//comparing the frequency
+
+	// comparing the frequency
 	public int compareTo(Word wordFrequency) {
 		return wordFrequency.frequency - frequency;
 	}
 
-	//overriding .equals method to check of the word equals the stopwords word
+	// overriding .equals method to check of the word equals the stopwords word
 	public boolean equals(Object obj) {
 		if (obj == null) {
 			return false;
@@ -54,7 +55,6 @@ public class Word implements Comparable<Word> {
 		return true;
 	}
 
-	@Override
 	public int hashCode() {
 		int hash = 3;
 		hash = 53 * hash + (this.word != null ? this.word.hashCode() : 0);

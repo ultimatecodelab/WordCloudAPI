@@ -12,10 +12,11 @@ public class RectCollisionChecker implements CollisionDetector {
 	public RectCollisionChecker() {
 
 	}
-	//collision detection algorithms
+
+	// collision detection algorithms
 	public boolean checkForCollision(Rectangle r) {
 		boolean collision = false;
-		//list size  = 0 , means we are creating the first rectangle only.
+		// list size = 0 , means we are creating the first rectangle only.
 		if (rectList.size() == 0) {
 			rectList.add(r);
 			return collision;
@@ -25,10 +26,10 @@ public class RectCollisionChecker implements CollisionDetector {
 			for (int i = 0; i < rectList.size(); i++) {
 				currRectangle = rectList.get(i);
 				if (r.intersects(currRectangle)) {
-					return true; //collision 
+					return true; // collision
 				}
 			}
-			rectList.add(r); //no collision
+			rectList.add(r); // no collision
 			return collision;
 		}
 	}

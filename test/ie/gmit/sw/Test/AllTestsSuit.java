@@ -1,4 +1,4 @@
-package ie.gmit.sw.wordcloudtest;
+package ie.gmit.sw.Test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

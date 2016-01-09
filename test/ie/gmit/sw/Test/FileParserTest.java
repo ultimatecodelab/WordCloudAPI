@@ -1,4 +1,4 @@
-package ie.gmit.sw.wordcloudtest;
+package ie.gmit.sw.Test;
 
 import org.junit.After;
 import org.junit.Before;

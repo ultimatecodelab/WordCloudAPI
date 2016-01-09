@@ -30,11 +30,11 @@ public class WordCloudStrategy implements WordCloudRandomiser {
 			fontSize += (int) ((minFont * 4.8) + minFont);
 		}
 		Font[] font = { new Font(Font.SANS_SERIF, Font.PLAIN, fontSize),
-				new Font(Font.MONOSPACED, Font.ITALIC, fontSize), new Font(Font.DIALOG, Font.BOLD, fontSize),
-				new Font(Font.SANS_SERIF, Font.ITALIC, fontSize), new Font(Font.DIALOG, Font.BOLD, fontSize),
-				new Font(Font.SANS_SERIF, Font.CENTER_BASELINE, fontSize), new Font(Font.DIALOG, Font.PLAIN, fontSize),
+				new Font(Font.MONOSPACED, Font.PLAIN, fontSize), new Font(Font.DIALOG, Font.BOLD, fontSize),
+				new Font(Font.SANS_SERIF, Font.PLAIN, fontSize), new Font(Font.DIALOG, Font.BOLD, fontSize),
+				new Font(Font.SANS_SERIF, Font.PLAIN, fontSize), new Font(Font.DIALOG, Font.PLAIN, fontSize),
 				new Font(Font.MONOSPACED, Font.PLAIN, fontSize), new Font(Font.SANS_SERIF, Font.PLAIN, fontSize),
-				new Font(Font.DIALOG, Font.HANGING_BASELINE, fontSize) };
+				new Font(Font.DIALOG, Font.PLAIN, fontSize) };
 
 		return font[rand.nextInt(font.length - 1)];
 	}

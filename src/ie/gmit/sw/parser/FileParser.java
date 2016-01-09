@@ -14,7 +14,7 @@ public class FileParser implements Parsable {
 	// list of Words
 	private static List<Word> parsedWords = new ArrayList<>();
 
-	private static StringBuilder words = new StringBuilder();
+	private static StringBuilder wordsSb = new StringBuilder();
 
 	private FrequencyAnalyzer wordsFreq; // dependency on interface
 											// (abstraction)
@@ -27,7 +27,7 @@ public class FileParser implements Parsable {
 	int duplicateCounter = 0;
 
 	@Override
-	public void parse(String fileName) throws Exception {
+	public boolean parse(String fileName) throws Exception {
 
 		parsedWords.clear();
 		try {
@@ -39,13 +39,13 @@ public class FileParser implements Parsable {
 			while (buffer.hasRemaining()) {
 				char charRead = (char) buffer.get();
 				if ((charRead >= 'A' && charRead <= 'z')) {
-					words.append(charRead);
+					wordsSb.append(charRead);
 				}
 				// if I encounter space or newline character then I know for
 
 				else if (charRead == ' ' || charRead == '\n') {
-					wordsFreq.put(words.toString().trim());
-					words.setLength(0);
+					wordsFreq.put(wordsSb.toString().trim());
+					wordsSb.setLength(0);
 				}
 			}
 			buffer.clear();
@@ -54,7 +54,9 @@ public class FileParser implements Parsable {
 			System.out.println("\nFinished Parsing...");
 		} catch (Exception e) {
 			System.out.println("File Name not matched.. plz enter your file with txt extension");
+			return false;
 		}
+		return true;
 	}
 
 	// now we are putting the words and their frequencies values
