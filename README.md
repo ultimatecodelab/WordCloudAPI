@@ -10,7 +10,7 @@
 - **wordcloud.jar** (wordcloudapi)
 - **lib** Folder contains jsoup library. Please make sure **"wordcloud.jar"** and **lib** folder are in the same folder. 
 - **src** (contains all the source code)
-- **test** 
+- **test** (contails all the Junit test cases)
 - **docs** (Java docs)
 - **WordCloud UML**
 - **stopwords.txt** (contains stopwords / words to ignore) **stopwords.txt** must be on the same directory as the **wordcloud.jar**
