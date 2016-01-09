@@ -10,6 +10,7 @@
 - **wordcloud.jar** (wordcloudapi)
 - **lib** Folder contains jsoup library. Please make sure **"wordcloud.jar"** and **lib** folder are in the same folder. 
 - **src** (contains all the source code)
+- **test** **All the jUnit test cases**
 - **docs** (Java docs)
 - **WordCloud UML**
 - **stopwords.txt** (contains stopwords / words to ignore) **stopwords.txt** must be on the same directory as the **wordcloud.jar**
@@ -96,7 +97,7 @@ The project is fully functional and is comprises of the following features / Tec
 	- Word.java (Class for storing words and Frequency) **Overides .equals()/hashCode() and Implements Comparable interface for 	comparing the frequency. Override .equals() for the equality check of generic objects...
 	- WordCloud.java (Creates the wordCloud)
 	- 
-8: **ie.gmit.sw.JunitTest**
+8: **test** contains all the junit test cases. New folder **test** was created in eclipse for writing junit test cases...
 
 	- AllTestsSuit.java
 	- CollisionDetectionTest.java
