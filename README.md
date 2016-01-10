@@ -48,9 +48,9 @@ The project is fully functional and is comprises of the following features / Tec
 
 2: File Parsing (NIO)
 
-3: **Advanced word placements with collision detections feature**
+3: Advanced word placements with collision detections feature
 
-3: Ability to save the wordclould image in png format.
+4: Ability to save the wordclould image in png format.
 
 
 **Project Description - Packages/classes**
