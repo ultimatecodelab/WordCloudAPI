@@ -86,7 +86,7 @@ public class WordCloud {
 		int height = myGraphics.getFontHeight() + PADDING;
 		Rectangle newRectangle;
 		int tempVal = width;
-		if (rotationChecker % 10 == 0 || rotationChecker == 3) {
+		if (rotationChecker % 5 == 0 || rotationChecker == 3) {
 			tempVal = width;
 			width = height;
 			height = tempVal;

@@ -25,7 +25,7 @@ public class RectCollisionChecker implements CollisionDetector {
 			Rectangle currRectangle;
 			for (int i = 0; i < rectList.size(); i++) {
 				currRectangle = rectList.get(i);
-				if (r.intersects(currRectangle)) {
+				if (r.getBounds2D().intersects(currRectangle.getBounds2D())) {
 					return true; // collision
 				}
 			}
