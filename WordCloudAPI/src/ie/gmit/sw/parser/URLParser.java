@@ -13,6 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * URLParser implements {@link Parsable} interface. This class is responsible
+ * for parsing the words from the web using Jsoup.
+ * 
+ * @author Arjun Kharel
+ *
+ */
 public class URLParser implements Parsable {
 
 	private static List<Word> parsedWords = new ArrayList<>();
@@ -22,7 +29,11 @@ public class URLParser implements Parsable {
 		this.wordsFreq = frequencyAnalyzor;
 	}
 
-	@Override
+	/**
+	 * @param parse
+	 *            URL to parse
+	 * @return returns boolean if the parsing was successful.
+	 */
 	public boolean parse(String parse) throws IOException {
 		StringBuilder words = new StringBuilder();
 		String url = parse;
@@ -31,8 +42,8 @@ public class URLParser implements Parsable {
 		try {
 			doc = Jsoup.connect(url).get();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error occured parsint the URL");
+			System.out.println(e.getMessage());
 			return false;
 		}
 		Elements paragraphs = doc.select("p");
@@ -60,9 +71,11 @@ public class URLParser implements Parsable {
 		}
 	}
 
-	// returning list of parsed Words
+	/**
+	 * @return returns List<Word> of parsed Words
+	 */
 	public List<Word> listOfParsedWords() {
-		
+
 		for (Map.Entry<String, Integer> entry : wordsFreq.getWordMap().entrySet()) {
 			String word = entry.getKey();
 			Integer value = entry.getValue();

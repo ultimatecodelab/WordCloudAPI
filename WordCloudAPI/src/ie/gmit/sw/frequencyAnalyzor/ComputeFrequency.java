@@ -3,7 +3,14 @@ package ie.gmit.sw.frequencyAnalyzor;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ComputeFrequency implements FrequencyAnalyzer, Cloneable {
+/**
+ * ComputeFrequency implements {@link FrequencyAnalyzer}. This class is
+ * responsible for analyzing the frequency of the words.
+ * 
+ * @author Arjun Kharel
+ *
+ */
+public class ComputeFrequency implements FrequencyAnalyzer {
 	// holds words and frequencies
 	private Map<String, Integer> wordsAndFreq = new HashMap<>();
 
@@ -11,7 +18,6 @@ public class ComputeFrequency implements FrequencyAnalyzer, Cloneable {
 		wordsAndFreq.clear(); // clearing initially
 	}
 
-	@Override
 	public void put(String Word) {
 		if (wordsAndFreq.containsKey(Word.toString())) {
 
@@ -22,7 +28,9 @@ public class ComputeFrequency implements FrequencyAnalyzer, Cloneable {
 		}
 	}
 
-	@Override
+	/**
+	 * @return returns the map containing the words and frequencies.
+	 */
 	public Map<String, Integer> getWordMap() {
 		// returning the copy of hashmap
 		return new HashMap<>(wordsAndFreq);// returning copy

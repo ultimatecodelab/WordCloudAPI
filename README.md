@@ -27,7 +27,7 @@
 
 2: Please ensure  **"stopwords.txt"**, **"wordcloud.jar"** and **lib** folder are on the same location, i.e( the same folder).
 
-3: Run WordCloud api using the one of the following command (first one is recommended )
+3: Run WordCloud api using the one of the following command
 	
 		java -cp "./wordcloud.jar;lib/*" ie.gmit.sw.Runner (Windows) //this way it compiles jsoup in lib folder  too.
 		

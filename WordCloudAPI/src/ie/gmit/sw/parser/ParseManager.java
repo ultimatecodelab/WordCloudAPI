@@ -6,26 +6,43 @@ import java.util.List;
 import ie.gmit.sw.wordcloud.Word;
 
 public class ParseManager {
-	private Parsable parsable; // depending on abstraction (interface) that wont
-								// change.
+	/**
+	 * This is the facade class. This class consist of multiple subsystems that
+	 * are needed to develop the full application. This provides easy interface
+	 * for the client. Complexity is hidden from the client and all they have to
+	 * do is call the constructor of this ParseManager{@link ParseManager}.
+	 * 
+	 * @author Arjun Kharel
+	 */
+
+	private Parsable parsable; // depending on abstraction (interface).
+
 	private List<Word> listOfWordsToBeDrawn = new ArrayList<>();;
 	private StopWordsParser wordsToIgnore; // Stop word parser
 	private static final int MIN_WORD_LENGTH = 3;
-	boolean status = false;
+	boolean validTextFile = false;
+	boolean validStopWordsFile = false;
+
 	// constructor
 	public ParseManager(Parsable parsable, String textFileToParse, String ignoreWords) throws Exception {
 		this.parsable = parsable;
-		wordsToIgnore = new StopWordsParser(ignoreWords);
-		status = parsable.parse(textFileToParse);
-		if (status) {
+		wordsToIgnore = new StopWordsParser();
+		
+		validStopWordsFile = wordsToIgnore.parse(ignoreWords);
+		validTextFile = parsable.parse(textFileToParse);
+		
+		if (validTextFile && validStopWordsFile) {
 			wordsToBeDrawn();
-		} else {
-			System.out.println("Invalid stopwords file entered: " + ignoreWords);
-		}
+		} 
 	}
-	public boolean parsingStatus(){
-		return status;
+	/**
+	 * 
+	 * @return returns boolean to notify whether the parsing was successful.
+	 */
+	public boolean parsingStatus() {
+		return (validTextFile && validStopWordsFile);
 	}
+
 	private void wordsToBeDrawn() {
 		List<Word> tempList = parsable.listOfParsedWords();
 		System.out.println("List of parsed words : " + parsable.listOfParsedWords().size());

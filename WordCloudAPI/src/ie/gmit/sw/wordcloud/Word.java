@@ -1,9 +1,12 @@
 package ie.gmit.sw.wordcloud;
-/*Contains word(String ) and int frequency
- * Implements Comparable to compare the frequency of the word with another word
- * Overrides .equals() method to check the word againt the stopwords
- */
 
+/**
+ * This class contains the word and its frequency. Implements Comparable to
+ * compare the frequency of the word with another word frequency. Overrides
+ * .equals() method to check the word against the stopwords
+ * 
+ * @author Arjun Kharel
+ */
 public class Word implements Comparable<Word> {
 
 	private String word; // String word

@@ -1,6 +1,7 @@
 package ie.gmit.sw.paint;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,6 +10,14 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+
+/**
+ * {@link WordCloudGraphics} implements {@link Graphicator}. This class contains
+ * all the relevent methods needed for wordcloud graphics. All other
+ * {@link java.awt.Graphics} methods has been encapsulated. The public methods
+ * allows to configure the graphics/color/fonts in various ways.
+ * 
+ */
 
 public class WordCloudGraphics implements Graphicator {
 
@@ -64,6 +73,14 @@ public class WordCloudGraphics implements Graphicator {
 	}
 
 	// generating png image
+	/**
+	 * @param filename
+	 *            Image file name.
+	 * @return returns boolean indicating whether the image was generated and
+	 *         saved properly.
+	 * @exception IOException
+	 *                will be thrown if saving is not successful.
+	 */
 	public boolean generatePNGGraphics(String fileName) throws IOException {
 		try {
 			this.imageName = fileName;
@@ -75,11 +92,24 @@ public class WordCloudGraphics implements Graphicator {
 	}
 
 	// drawing word
-	public void drawWord(String word, int xCordinate, int yCordinate) {
-		graphics.drawString(word.trim().toUpperCase().trim(), xCordinate, yCordinate);
+	/**
+	 * This method draws the word on a graphics.
+	 * 
+	 * @param word
+	 *            Word to be drawn
+	 * @param xCordinate
+	 *            xCoordinate for the word
+	 * @param yCoordinate
+	 *            yCcoordinate for the word
+	 */
+	public void drawWord(String word, int xCoordinate, int yCoordinate) {
+		graphics.drawString(word.trim().toUpperCase().trim(), xCoordinate, yCoordinate);
 	}
 
 	// rotated text - a bit of math's
+	/**
+	 * This method draws and rotate the word at 90 degrees.
+	 */
 	public void drawRotatedWord(String word, int xCordinate, int yCordinate) {
 		Graphics2D g2d = (Graphics2D) graphics;
 		g2d.translate((float) xCordinate, (float) yCordinate);

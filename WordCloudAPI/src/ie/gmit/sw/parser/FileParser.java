@@ -9,7 +9,12 @@ import java.util.Map;
 
 import ie.gmit.sw.frequencyAnalyzor.FrequencyAnalyzer;
 import ie.gmit.sw.wordcloud.Word;
-
+/**
+ * @author Arjun Kharel
+ * {@link FileParser} implements {@link Parsable} interface.
+ * This class parses the file and returns the list of parsed words.
+ *
+ */
 public class FileParser implements Parsable {
 	// list of Words
 	private static List<Word> parsedWords = new ArrayList<>();
@@ -60,6 +65,9 @@ public class FileParser implements Parsable {
 	}
 
 	// now we are putting the words and their frequencies values
+	/**
+	 * Returns the list of parsed words
+	 */
 	public List<Word> listOfParsedWords() {
 		for (Map.Entry<String, Integer> entry : wordsFreq.getWordMap().entrySet()) {
 			String word = entry.getKey();

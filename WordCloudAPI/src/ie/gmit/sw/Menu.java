@@ -2,11 +2,20 @@ package ie.gmit.sw;
 
 import java.util.Scanner;
 
+import ie.gmit.sw.collisionDetection.RectCollisionChecker;
 import ie.gmit.sw.parser.ParseManager;
 import ie.gmit.sw.parser.ParseType;
 import ie.gmit.sw.parser.ParserFactory;
+import ie.gmit.sw.randomStrategy.Coordinate;
+import ie.gmit.sw.randomStrategy.WordCloudStrategy;
 import ie.gmit.sw.wordcloud.WordCloud;
 
+/**
+ * This class displays the menu.
+ * 
+ * @author Arjun Kharel
+ *
+ */
 public class Menu {
 	private Scanner sc = new Scanner(System.in);
 
@@ -33,8 +42,8 @@ public class Menu {
 			manager = new ParseManager(ParserFactory.getParser(ParseType.FileParser), fileName, wordToIgnore);
 			if (manager.parsingStatus()) {
 				System.out.println("Please Wait...");
+				beginProcess();
 			}
-			new WordCloud(manager.getWordsToDraw());
 			break;
 		case 2:
 			System.out.print("Enter url: ");
@@ -45,15 +54,20 @@ public class Menu {
 
 			if (manager.parsingStatus()) {
 				System.out.println("Please Wait...");
+				beginProcess();
 			}
-
-			new WordCloud(manager.getWordsToDraw());
-
 			break;
 		default:
 			System.out.println("Invalid option selected, please choose 1 or 2.");
 		}
 
+	}
+
+	private void beginProcess() throws Exception {
+		new WordCloud(manager.getWordsToDraw(), 
+						new RectCollisionChecker(), 
+						new WordCloudStrategy(), 
+						new Coordinate());
 	}
 
 }

@@ -1,27 +1,29 @@
 package ie.gmit.sw.Test;
 
 import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import static org.junit.Assert.*;
 
+import org.junit.Test;
 import ie.gmit.sw.frequencyAnalyzor.ComputeFrequency;
 import ie.gmit.sw.parser.Parsable;
 import ie.gmit.sw.parser.URLParser;
 
 public class URLParserTest {
-	@Rule
-	 public final ExpectedException exception = ExpectedException.none();
+
 	Parsable urlParser;
+	String url;
+
 	@Before
 	public void setUp() throws Exception {
 		urlParser = new URLParser(new ComputeFrequency());
-	
-	}
+		url = "http://www.rte.ie/news/2016/0110/758998-limerick-body-court/";
 
-	@Test(expected = IllegalArgumentException.class)
+	}
+	@Test
 	public void test() throws Exception {
-		urlParser.parse(null); //test passed.. expected exception returned.
+		boolean status = urlParser.parse(url); //test passed..
+		assertTrue(status);
+		
 	}
 
 }

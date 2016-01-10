@@ -9,7 +9,7 @@ public class CreateWordCloudTest {
 	
 	@Test(expected = NullPointerException.class)
 	public void test() throws Exception {
-		wordCloud = new WordCloud(null); //test passed when null is passed
+		wordCloud = new WordCloud(null,null,null,null); //test passed when null is passed
 	}
 
 }

@@ -8,6 +8,11 @@ import java.util.List;
 
 import ie.gmit.sw.wordcloud.Word;
 
+/**
+ * This class is responsible for filtering out the stopwords.
+ * 
+ * @author Arjun Kharel
+ */
 public class StopWordsParser implements Parsable {
 	private List<Word> wordsToIgnore = new ArrayList<>();
 
@@ -22,6 +27,13 @@ public class StopWordsParser implements Parsable {
 		parse(fileName);
 	}
 
+	/**
+	 * This method is responsible for parsing the file.
+	 * 
+	 * @param fileName
+	 *            File Name to parse.
+	 * @return Returns boolean if the parsing was successful.
+	 */
 	public boolean parse(String fileName) throws Exception {
 		wordsToIgnore.clear();
 

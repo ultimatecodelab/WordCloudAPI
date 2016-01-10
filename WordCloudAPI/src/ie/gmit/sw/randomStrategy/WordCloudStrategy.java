@@ -4,6 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.Random;
 
+/**
+ * {@link WordCloudStrategy} implements {@link WordCloudRandomiser}. This class
+ * is responsible for returning the font proportional to the frequency of the
+ * word. This class also returns the random color.
+ * 
+ * @author Arjun Kharel
+ *
+ */
 public class WordCloudStrategy implements WordCloudRandomiser {
 
 	private int fontSize = 0;

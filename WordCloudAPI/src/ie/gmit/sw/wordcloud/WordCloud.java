@@ -1,12 +1,9 @@
 package ie.gmit.sw.wordcloud;
 
 import ie.gmit.sw.collisionDetection.CollisionDetector;
-import ie.gmit.sw.collisionDetection.RectCollisionChecker;
 import ie.gmit.sw.paint.WordCloudGraphics;
-import ie.gmit.sw.randomStrategy.Coordinate;
 import ie.gmit.sw.randomStrategy.CordinateGenerator;
 import ie.gmit.sw.randomStrategy.WordCloudRandomiser;
-import ie.gmit.sw.randomStrategy.WordCloudStrategy;
 import ie.gmit.sw.paint.Graphicator;
 
 import java.awt.Rectangle;
@@ -14,36 +11,52 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * This class is responsible for create the wordcloud . This class is composed
+ * of multiple other sub classes that performs various different tasks. This
+ * class is composed of {@link Graphicator}, {@link WordCloudRandomiser} ,
+ * {@link CollisionDetector} and {@link CordinateGenerator} and deligates its
+ * task to other classes (objects).
+ * 
+ * @author Arjun Kharel
+ *
+ */
 public class WordCloud {
 	// Constants and variables
 	private static final int PADDING = 6;
 	private static final int MAX_Y_AXIS_FOR_ROTATED_TEXT = 675;
 	private static final int MAX_RAND_X = 1019;
 	private static final int MAX_RAND_Y = 519;
-
 	private String wordCloudPNGFileName = "WordCloud.png";
-
-	/*
-	 * Graphics method has been encapsulated using the interface and only the
-	 * methods defined in a interface are accessible, and all the unnecessary
-	 * methods has been hidden/encapsulated.. Please see - Paintable interface
-	 * declaration
-	 */
-	private Graphicator myGraphics = new WordCloudGraphics();
-	private WordCloudRandomiser randomiser = new WordCloudStrategy();
-	private CollisionDetector collisonChecker = new RectCollisionChecker();
-	private CordinateGenerator coordinate = new Coordinate();
-
 	private static int rotationChecker = 0;
 	private boolean rotated = false;
 	private boolean isListEmpty = false;
 
-	public WordCloud(List<Word> listofWordsToBeDrawn) throws Exception {
+	private Graphicator myGraphics = new WordCloudGraphics();
+	private WordCloudRandomiser randomiser;
+	private CollisionDetector collisonChecker;
+	private CordinateGenerator coordinate;
+
+	public WordCloud(List<Word> listofWordsToBeDrawn, CollisionDetector collisionDetector,
+			WordCloudRandomiser wordCloudRandomiser, CordinateGenerator coordinateGenerator) throws Exception {
+
+		this.collisonChecker = collisionDetector;
+		this.randomiser = wordCloudRandomiser;
+		this.coordinate = coordinateGenerator;
 
 		isListEmpty = beginProcess(listofWordsToBeDrawn);
 		if (isListEmpty)
-			System.out.println("Cannot create the wordcloud,you must have typed in the" + "wrong filename...");
+			System.out.println("Cannot create the wordcloud...");
+
 	}
+	/*
+	 * public WordCloud(List<Word> listofWordsToBeDrawn) throws Exception {
+	 * 
+	 * isListEmpty = beginProcess(listofWordsToBeDrawn); if (isListEmpty)
+	 * System.out.println(
+	 * "Cannot create the wordcloud,you must have typed in the" +
+	 * "wrong filename..."); }
+	 */
 
 	private boolean beginProcess(List<Word> wordList) throws Exception {
 		if (wordList.size() > 0) {
@@ -57,7 +70,7 @@ public class WordCloud {
 
 	// words initialization - list of words to be drawn
 	private void initWords(List<Word> drawWordsList) {
-		Collections.sort(drawWordsList); //sorting the collection
+		Collections.sort(drawWordsList); // sorting the collection
 		Random rand = new Random();
 		int size = drawWordsList.size();
 		// top 100 words will be drawn Word class overrides equals()
